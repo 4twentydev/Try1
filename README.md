@@ -14,7 +14,7 @@
 
 ## 💻 Preview
 
-https://github.com/timtbdev/Next.js-Blog-App/assets/25026241/28c88539-ce40-4283-8239-10c0024bf349
+https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/a18eca2c-b205-4f50-9e96-eb29d179b475
 
 ## 📊 Google Lighthouse performance statistics
 

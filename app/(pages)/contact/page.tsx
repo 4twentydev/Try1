@@ -1,4 +1,3 @@
-import { get } from "http"
 import { Metadata } from "next"
 import { ContactForm } from "@/components/contact"
 import { metaData } from "@/config/meta"
@@ -62,7 +61,7 @@ const ContactPage = () => {
           <div className="absolute -top-1.5 left-0 h-2 w-full bg-gradient-to-r from-white from-20% via-white/5 to-white to-80% dark:from-slate-800 dark:from-20% dark:via-slate-800/5 dark:to-slate-800 dark:to-80%"></div>
           <div className="absolute -bottom-1.5 left-0 h-2 w-full bg-gradient-to-r from-white from-10% via-white/5 to-white to-90% dark:from-slate-800 dark:from-10% dark:via-slate-800/5 dark:to-slate-800 dark:to-90%"></div>
 
-          <h1 className="font-calsans mx-auto text-center text-3xl tracking-tight text-slate-900 dark:text-slate-100">
+          <h1 className="mx-auto text-center font-calsans text-3xl tracking-tight text-slate-900 dark:text-slate-100">
             <Balancer>{page.title}</Balancer>
           </h1>
         </div>

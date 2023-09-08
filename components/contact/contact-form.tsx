@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -71,9 +70,6 @@ const ContactForm = () => {
       if (!response?.ok) {
         return toast.error("Failed to send email.")
       }
-
-      // Show success message or redirect to a thank you page
-      console.log("Email sent successfully!")
     } catch (error) {
       toast.error("Failed to send email.")
     } finally {
