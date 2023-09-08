@@ -1,6 +1,6 @@
 <p align="center" style="margin-top: 120px">
   <a href="https://timtb.dev">
-   <img src="https://github.com/timtbdev/sign-dictionary/assets/25026241/2038fd10-f9e7-4035-8c14-28bef92729f9" width="100px" alt="Porfolio app logo">
+   <img src="https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/f2c9c23c-6de8-4382-9369-f52952de0605" width="100px" alt="Porfolio app logo">
   </a>
 </p>
 
@@ -10,7 +10,7 @@
     <a href="https://timtb.dev"><strong>Demo</strong></a>
   </p>
 
-<img width="1040" alt="Cover" src="https://github.com/timtbdev/sign-dictionary/assets/25026241/537b830a-4ea0-40cb-bb26-7b3b744a4fce">
+<img width="1040" alt="Cover" src="portfolio-github-cover](https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/f7e5e9ab-b24b-4d34-9754-780eda858e95">
 
 ## 💻 Preview
 
