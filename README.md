@@ -1,6 +1,6 @@
 <p align="center" style="margin-top: 120px">
   <a href="https://timtb.dev">
-   <img src="https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/f2c9c23c-6de8-4382-9369-f52952de0605" width="100px" alt="Porfolio app logo">
+   <img src="https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/c7d3592a-444c-4b50-a3cb-ec3917526cfc" width="100px" alt="Porfolio app logo">
   </a>
 </p>
 
@@ -10,7 +10,7 @@
     <a href="https://timtb.dev"><strong>Demo</strong></a>
   </p>
 
-<img width="1040" alt="Cover" src="portfolio-github-cover](https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/f7e5e9ab-b24b-4d34-9754-780eda858e95">
+<img width="1040" alt="Cover" src="https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/f7e5e9ab-b24b-4d34-9754-780eda858e95">
 
 ## 💻 Preview
 
