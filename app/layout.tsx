@@ -1,6 +1,5 @@
 import "@/styles/tailwind.css"
 
-import { get } from "http"
 import type { Metadata } from "next"
 import { Inter as FontSans } from "next/font/google"
 import localFont from "next/font/local"
@@ -8,6 +7,7 @@ import { MainWrapper, ThemeProvider, TwIndicator } from "@/components/main"
 import { metaData } from "@/config/meta"
 import { cn, constructOgImageUri, getUrl } from "@/libs/utils"
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react"
+import { Toaster } from "react-hot-toast"
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -168,6 +168,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <MainWrapper>
             {children}
+            <Toaster position="top-center" />
             <VercelAnalytics />
             <TwIndicator />
           </MainWrapper>
