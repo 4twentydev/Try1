@@ -1,0 +1,88 @@
+<p align="center" style="margin-top: 120px">
+  <a href="https://timtb.dev">
+   <img src="https://github.com/timtbdev/sign-dictionary/assets/25026241/2038fd10-f9e7-4035-8c14-28bef92729f9" width="100px" alt="Porfolio app logo">
+  </a>
+</p>
+
+  <p align="center">
+  Portfolio built with Next.js 13 & Contentlayer, MDX
+  <br>
+    <a href="https://timtb.dev"><strong>Demo</strong></a>
+  </p>
+
+<img width="1040" alt="Cover" src="https://github.com/timtbdev/sign-dictionary/assets/25026241/537b830a-4ea0-40cb-bb26-7b3b744a4fce">
+
+## 💻 Preview
+
+https://github.com/timtbdev/Next.js-Blog-App/assets/25026241/28c88539-ce40-4283-8239-10c0024bf349
+
+## 📊 Google Lighthouse performance statistics
+
+<img width="992" alt="Screenshot 2023-06-10 at 10 00 18 PM" src="https://github.com/timtbdev/Portfolio/assets/25026241/ac4eacfb-d3e7-4afe-a092-d8c5d16a0a34">
+
+## 📚 Features
+
+- App Router,
+- Server Actions
+- Server and Client Components
+- Metadata files
+- Open Graph Image Generation using [Vercel/Og](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation)
+- UI Components built using [Shadcn UI](https://ui.shadcn.com/), [Radix UI](https://www.radix-ui.com/) and [Headless UI](https://headlessui.com/),
+- Pages and blogs are using [MDX](https://mdxjs.com/) and [Contentlayer](https://www.contentlayer.dev/)
+- Sending emails using [NodeMailer](https://nodemailer.com) and [React Email](https://https://react.email/), [Gmail](https://gmail.com)
+- Styled using [Tailwind CSS](https://tailwindcss.com/)
+- Icons using [Heroicons](https://heroicons.com/) and [Lucide](https://lucide.dev/)
+- Validations using [Zod](https://www.zod.dev)
+- Written in [TypeScript](https://www.typescriptlang.org/)
+
+## ⌨️ Code Quality
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+
+## 📈 Miscellaneous
+
+- [Vercel Analytics](https://vercel.com/analytics)
+
+# ⚙️ Getting Started
+
+## Requirements
+
+To run this app locally you need
+
+- [Node.js (Version: >=18.x)](https://nodejs.org/en/download/)
+- Node Package Manager NPM - included in Node.js
+- [PostgreSQL (local or remote)](https://www.postgresql.org/download/)
+
+## Developer Quickstart
+
+Want to get up and running quickly? Follow these steps:
+
+- [Clone the repository](https://help.github.com/articles/cloning-a-repository/) it to your local device.
+
+  ```sh
+  git clone https://github.com/timtbdev/Next.js-Portfolio-App.git
+  ```
+- Set up your `.env.local` file using the recommendations in the `.env.example` file.
+- Run `npm installation --legacy-peer-deps` in the root directory
+  ```sh
+  npm installation --legacy-peer-deps
+  ```
+- Run `npm run dev` in the root directory
+- Want it even faster? Just use
+  ```sh
+  npm run d
+  ```
+
+That's it! You should now be able to access the app at http://localhost:3000
+
+Admin dashboard will also be available on http://localhost:300/dashboard
+
+## 🙇 Author
+
+- Tim ([@timtbdev](https://twitter.com/timtbdev))
+
+## License
+
+Licensed under the [MIT license](https://github.com/shadcn/taxonomy/blob/main/LICENSE.md).
