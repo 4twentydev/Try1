@@ -18,7 +18,13 @@ https://github.com/timtbdev/Next.js-Blog-App/assets/25026241/28c88539-ce40-4283-
 
 ## 📊 Google Lighthouse performance statistics
 
-<img width="992" alt="Screenshot 2023-06-10 at 10 00 18 PM" src="https://github.com/timtbdev/Portfolio/assets/25026241/ac4eacfb-d3e7-4afe-a092-d8c5d16a0a34">
+### Desktop
+
+<img width="992" alt="Screenshot 2023-06-10 at 10 00 18 PM" src="https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/5ac46411-99bf-4dff-a27f-fc034c1fde57">
+
+### Mobile
+
+<img width="992" alt="Screenshot 2023-06-10 at 10 00 18 PM" src="https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/e0f1ab9f-fe76-44b8-8508-a36aac3be8c5">
 
 ## 📚 Features
 
