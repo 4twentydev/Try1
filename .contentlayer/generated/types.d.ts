@@ -54,7 +54,7 @@ export type Project = {
   _raw: Local.RawDocumentData
   type: 'Project'
   title: string
-  mobile: boolean
+  category: string
   description?: string | undefined
   url: string
   date: IsoDateTimeString

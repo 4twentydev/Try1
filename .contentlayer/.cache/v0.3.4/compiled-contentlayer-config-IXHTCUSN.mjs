@@ -153,9 +153,9 @@ var Project = defineDocumentType(() => ({
       type: "string",
       required: true
     },
-    mobile: {
-      type: "boolean",
-      default: true
+    category: {
+      type: "string",
+      required: true
     },
     description: {
       type: "string"
@@ -240,4 +240,4 @@ export {
   Social,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-4ZLVJ7AN.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-IXHTCUSN.mjs.map

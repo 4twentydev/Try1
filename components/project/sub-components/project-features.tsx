@@ -1,14 +1,17 @@
-import { FC } from "react"
-import { v4 } from "uuid"
-
-import { Feature } from "types"
+import { FC } from "react";
+import { Feature } from "types";
+import { v4 } from "uuid";
 
 interface ProjectFeaturesProps {
-  features: string[]
+  features: string[];
+  category: string;
 }
 
-const ProjectFeatures: FC<ProjectFeaturesProps> = ({ features }) => {
-  const titles: Array<string> = ["Components", "Libraries", "Backend"]
+const ProjectFeatures: FC<ProjectFeaturesProps> = ({ features, category }) => {
+  const titles =
+    category === "Android"
+      ? ["Components", "Libraries", "Backend"]
+      : ["Core", "Styles", "Others"];
 
   return (
     <>
@@ -31,7 +34,7 @@ const ProjectFeatures: FC<ProjectFeaturesProps> = ({ features }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ProjectFeatures
+export default ProjectFeatures;

@@ -2,12 +2,12 @@ import {
   defineDocumentType,
   defineNestedType,
   makeSource,
-} from "contentlayer/source-files"
-import readingTime from "reading-time"
-import rehypeAutolinkHeadings from "rehype-autolink-headings"
-import rehypePrettyCode from "rehype-pretty-code"
-import rehypeSlug from "rehype-slug"
-import remarkGfm from "remark-gfm"
+} from "contentlayer/source-files";
+import readingTime from "reading-time";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -20,7 +20,7 @@ const computedFields = {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
   },
-}
+};
 
 const Author = defineNestedType(() => ({
   name: "Author",
@@ -29,7 +29,7 @@ const Author = defineNestedType(() => ({
     image: { type: "string", required: true },
     twitter: { type: "string", required: true },
   },
-}))
+}));
 
 export const Social = defineDocumentType(() => ({
   name: "Social",
@@ -62,7 +62,7 @@ export const Social = defineDocumentType(() => ({
     },
   },
   computedFields,
-}))
+}));
 
 export const Page = defineDocumentType(() => ({
   name: "Page",
@@ -99,7 +99,7 @@ export const Page = defineDocumentType(() => ({
     },
   },
   computedFields,
-}))
+}));
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -148,7 +148,7 @@ export const Post = defineDocumentType(() => ({
     },
   },
   computedFields,
-}))
+}));
 
 export const Project = defineDocumentType(() => ({
   name: "Project",
@@ -159,9 +159,9 @@ export const Project = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
-    mobile: {
-      type: "boolean",
-      default: true,
+    category: {
+      type: "string",
+      required: true,
     },
     description: {
       type: "string",
@@ -202,7 +202,7 @@ export const Project = defineDocumentType(() => ({
     },
   },
   computedFields,
-}))
+}));
 
 export default makeSource({
   contentDirPath: "./content",
@@ -219,14 +219,14 @@ export default makeSource({
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
             if (node.children.length === 0) {
-              node.children = [{ type: "text", value: " " }]
+              node.children = [{ type: "text", value: " " }];
             }
           },
           onVisitHighlightedLine(node) {
-            node.properties.className.push("line--highlighted")
+            node.properties.className.push("line--highlighted");
           },
           onVisitHighlightedWord(node) {
-            node.properties.className = ["word--highlighted"]
+            node.properties.className = ["word--highlighted"];
           },
         },
       ],
@@ -241,4 +241,4 @@ export default makeSource({
       ],
     ],
   },
-})
+});

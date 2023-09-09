@@ -23,7 +23,7 @@ const Project: FC<ProjectProps> = ({
   line,
 }) => {
 
-
+console.log("Type :", project.type)
 
   return (
     <>
@@ -32,12 +32,12 @@ const Project: FC<ProjectProps> = ({
         <ProjectDate year={formatDate(project.date)} />
         <ProjectLine />
         <ProjectBrowser key={v4()} url={project.url ? project.url : ""}>
-          <ProjectContainer>
+          <ProjectContainer category={project.category}>
             <div className="overflow-hidden">
-              <ProjectHeader title={project.title} tags={project?.tags ? project?.tags : []} icon={project.icon ? project.icon : ""} />
-              <ProjectFeatures features={project.features} />
+              <ProjectHeader title={project.title} category={project.category} tags={project?.tags ? project?.tags : []} icon={project.icon ? project.icon : ""} />
+              <ProjectFeatures features={project.features} category={project.category} />
             </div>
-            <ProjectScreenShot screenshot={project.screenshot ? project.screenshot : ""} />
+            <ProjectScreenShot category={project.category} screenshot={project.screenshot ? project.screenshot : ""} />
           </ProjectContainer>
         </ProjectBrowser>
       </div>
