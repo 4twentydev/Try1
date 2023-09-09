@@ -8,7 +8,7 @@ import {
   getUrl,
   shimmer,
   toBase64,
-} from "@/libs/utils"
+} from "@/lib/utils"
 import {
   CalendarDaysIcon as DateIcon,
   ClockIcon as TimeIcon,

@@ -2,7 +2,7 @@ import { Metadata } from "next"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import Mdx from "@/components/ui/mdx"
-import { constructOgImageUri, getUrl } from "@/libs/utils"
+import { constructOgImageUri, getUrl } from "@/lib/utils"
 import { allPosts } from "contentlayer/generated"
 
 interface PostPageProps {

@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { formatDate } from "@/libs/utils"
+import { formatDate } from "@/lib/utils"
 
 import {
   ProjectBrowser,

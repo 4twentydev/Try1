@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { getUrl } from "@/libs/utils"
+import { getUrl } from "@/lib/utils"
 
 import OgWrapper from "./og-wrapper"
 

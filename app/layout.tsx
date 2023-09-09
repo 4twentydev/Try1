@@ -5,7 +5,7 @@ import { Inter as FontSans } from "next/font/google"
 import localFont from "next/font/local"
 import { MainWrapper, ThemeProvider, TwIndicator } from "@/components/main"
 import { metaData } from "@/config/meta"
-import { cn, constructOgImageUri, getUrl } from "@/libs/utils"
+import { cn, constructOgImageUri, getUrl } from "@/lib/utils"
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react"
 import { Toaster } from "react-hot-toast"
 

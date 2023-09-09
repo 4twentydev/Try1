@@ -5,7 +5,7 @@
 </p>
 
   <p align="center">
-  Portfolio built with Next.js 13 & Contentlayer, MDX
+  Portfolio app built with Next.js 13 & Contentlayer, MDX
   <br>
     <a href="https://timtb.dev"><strong>Demo</strong></a>
   </p>
@@ -70,6 +70,7 @@ Want to get up and running quickly? Follow these steps:
   ```sh
   git clone https://github.com/timtbdev/Next.js-Portfolio-App.git
   ```
+
 - Set up your `.env.local` file using the recommendations in the `.env.example` file.
 - Run `npm installation --legacy-peer-deps` in the root directory
   ```sh

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { Email } from "@/components/contact/"
-import { smtpEmail, transporter } from "@/libs/nodemailer"
+import { smtpEmail, transporter } from "@/lib/nodemailer"
 import { render } from "@react-email/components"
 import * as z from "zod"
 

@@ -1,6 +1,6 @@
 import { FC, useState } from "react"
 import Link from "next/link"
-import { cn } from "@/libs/utils"
+import { cn } from "@/lib/utils"
 import { Menu } from "@/types"
 
 interface DesktopNavProps {
