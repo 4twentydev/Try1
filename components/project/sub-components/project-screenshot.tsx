@@ -44,7 +44,7 @@ const ProjectScreenShot: FC<ProjectScreenShotProps> = ({
                 <div className="h-[156px] overflow-hidden rounded-lg bg-white dark:bg-gray-800 md:h-[278px]">
                   <Image
                     src={screenshot}
-                    className="h-[278px] w-[512px] rounded-xl object-cover"
+                    className="object-fit h-[278px] w-[512px] rounded-xl sm:object-cover"
                     width={512}
                     height={278}
                     alt="Screenshot"

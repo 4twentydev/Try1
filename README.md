@@ -20,11 +20,11 @@ https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/a18eca2c-b205-
 
 ### Desktop
 
-<img width="992" alt="Screenshot 2023-06-10 at 10 00 18 PM" src="https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/5ac46411-99bf-4dff-a27f-fc034c1fde57">
+<img width="992" alt="Screenshot 2023-06-10 at 10 00 18 PM" src="https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/1ca6414f-061f-4e99-819c-227e7e8fced1">
 
 ### Mobile
 
-<img width="992" alt="Screenshot 2023-06-10 at 10 00 18 PM" src="https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/e0f1ab9f-fe76-44b8-8508-a36aac3be8c5">
+<img width="992" alt="Screenshot 2023-06-10 at 10 00 18 PM" src="https://github.com/timtbdev/Next.js-Portfolio-App/assets/25026241/9ac0a882-e121-4011-be63-6b984534a80a">
 
 ## 📚 Features
 
