@@ -1,18 +1,18 @@
-import { ExoticComponent, FC, ReactNode } from "react"
-import { useRouter } from "next/navigation"
-import { Disclosure, Transition } from "@headlessui/react"
-
-import { Menu } from "types"
+import { Disclosure, Transition } from "@headlessui/react";
+import { useRouter } from "next/navigation";
+import { ExoticComponent, FC, ReactNode } from "react";
+import { Menu } from "types";
+import { v4 } from "uuid";
 
 interface MobileNavProps {
   fragment: ExoticComponent<{
-    children?: ReactNode | undefined
-  }>
-  menu: Menu[]
+    children?: ReactNode | undefined;
+  }>;
+  menus: Menu[];
 }
 
-const MobileNav: FC<MobileNavProps> = ({ fragment, menu }) => {
-  const router = useRouter()
+const MobileNav: FC<MobileNavProps> = ({ fragment, menus }) => {
+  const router = useRouter();
 
   return (
     <>
@@ -26,9 +26,9 @@ const MobileNav: FC<MobileNavProps> = ({ fragment, menu }) => {
         leaveTo="opacity-0 translate-y-1"
       >
         <Disclosure.Panel className="border-t border-dashed border-slate-400 dark:border-slate-400/40 lg:hidden">
-          {menu.map((item) => (
+          {menus.map((item) => (
             <Disclosure.Button
-              key={item.idx}
+              key={v4()}
               as="a"
               onClick={() => router.push(item.url)}
             >
@@ -47,7 +47,7 @@ const MobileNav: FC<MobileNavProps> = ({ fragment, menu }) => {
         </Disclosure.Panel>
       </Transition>
     </>
-  )
-}
+  );
+};
 
-export default MobileNav
+export default MobileNav;

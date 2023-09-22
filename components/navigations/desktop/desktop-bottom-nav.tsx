@@ -1,9 +1,9 @@
-import { FC } from "react"
-
-import { Footer } from "types"
+import { FC } from "react";
+import { Footer } from "types";
+import { v4 } from "uuid";
 
 interface DesktopBottomNavProps {
-  footer: Footer
+  footer: Footer;
 }
 const DesktopBottomNav: FC<DesktopBottomNavProps> = ({ footer }) => {
   return (
@@ -12,7 +12,7 @@ const DesktopBottomNav: FC<DesktopBottomNavProps> = ({ footer }) => {
         <div className="flex justify-center space-x-6 md:order-2">
           {footer.socials.map((item, idx) => (
             <a
-              key={idx + item.name}
+              key={v4()}
               href={item.href}
               className="text-slate-400 hover:text-slate-500 focus-visible:border-blue-500 dark:text-slate-500 dark:hover:text-slate-400 dark:focus-visible:border-orange-500"
             >
@@ -28,7 +28,7 @@ const DesktopBottomNav: FC<DesktopBottomNavProps> = ({ footer }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default DesktopBottomNav
+export default DesktopBottomNav;

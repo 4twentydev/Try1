@@ -1,8 +1,7 @@
-import { GithubIcon, TwitterIcon } from "@/icons"
+import { GithubIcon, TwitterIcon } from "@/icons";
+import { Footer } from "types";
 
-import { Footer } from "types"
-
-export const footer: Footer = {
+const footer: Footer = {
   copyright: "2023 Tim. All rights reserved. No Cookies.",
   socials: [
     {
@@ -16,4 +15,6 @@ export const footer: Footer = {
       icon: GithubIcon,
     },
   ],
-}
+};
+
+export default footer;

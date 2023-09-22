@@ -1,6 +1,6 @@
-import { MetaAttributes } from "types"
+import { MetaAttributes } from "types";
 
-export const metaData: MetaAttributes = {
+const metaData: MetaAttributes = {
   title: "Tim | Portfolio",
   ogTitle: "Tim / Portfolio",
   author: {
@@ -9,6 +9,8 @@ export const metaData: MetaAttributes = {
     twitterAddress: "@timtbdev",
   },
   description:
-    "Tim is a Web and Mobile developer based in Hayward, California.",
+    "Tim is a web and mobile developer based in Hayward, California.",
   tags: ["Web", "Mobile", "Developer"],
-}
+};
+
+export default metaData;

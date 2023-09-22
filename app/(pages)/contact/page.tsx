@@ -1,10 +1,10 @@
-import { Metadata } from "next"
-import { ContactForm } from "@/components/contact"
-import { metaData } from "@/config/meta"
-import { EmailIcon, GithubIcon, TwitterIcon } from "@/icons"
-import { cn, constructOgImageUri, getUrl } from "@/lib/utils"
-import { allPages, allSocials } from "contentlayer/generated"
-import Balancer from "react-wrap-balancer"
+import { ContactForm } from "@/components/contact";
+import metaData from "@/config/meta";
+import { EmailIcon, GithubIcon, TwitterIcon } from "@/icons";
+import { cn, constructOgImageUri, getUrl } from "@/lib/utils";
+import { allPages, allSocials } from "contentlayer/generated";
+import { Metadata } from "next";
+import Balancer from "react-wrap-balancer";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
           metaData.ogTitle,
           "Contact",
           metaData.tags,
-          "/contact"
+          "/contact",
         ),
         width: 1200,
         height: 630,
@@ -38,21 +38,21 @@ export const metadata: Metadata = {
         metaData.ogTitle,
         "Contact",
         metaData.tags,
-        "/contact"
+        "/contact",
       ),
     ],
     creator: metaData.author.twitterAddress,
   },
-}
+};
 
 const ContactPage = () => {
-  const page = allPages.find((page) => page.slugAsParams === "contact")
+  const page = allPages.find((page) => page.slugAsParams === "contact");
 
-  if (!page) return null
+  if (!page) return null;
 
   const socials = page.socials?.map((social) =>
-    allSocials.find(({ slug }) => slug === `/socials/${social}`)
-  )
+    allSocials.find(({ slug }) => slug === `/socials/${social}`),
+  );
 
   return (
     <>
@@ -110,12 +110,12 @@ const ContactPage = () => {
                     {social.address}
                   </div>
                 </a>
-              )
+              ),
           )}
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;

@@ -1,18 +1,19 @@
-"use client"
+"use client";
 
-import { usePathname } from "next/navigation"
-import { DesktopBottomNav } from "@/components/navigations/desktop"
-import { MobileBottomNav } from "@/components/navigations/mobile"
-import { footer, menu } from "@/config"
+import { DesktopBottomNav } from "@/components/navigations/desktop";
+import { MobileBottomNav } from "@/components/navigations/mobile";
+import footer from "@/config/footer";
+import menus from "@/config/menus";
+import { usePathname } from "next/navigation";
 
 const variants = {
   visible: { opacity: 1, y: 0 },
   initial: { opacity: 0, y: 75 },
   hidden: { opacity: 0, y: 25 },
-}
+};
 
 const MainFooter = () => {
-  const currentPath = usePathname()
+  const currentPath = usePathname();
 
   return (
     <>
@@ -21,11 +22,11 @@ const MainFooter = () => {
           <DesktopBottomNav footer={footer} />
         </nav>
         <nav className="mx-auto max-w-5xl items-center justify-between md:hidden">
-          <MobileBottomNav menu={menu} currentPath={currentPath || ""} />
+          <MobileBottomNav menus={menus} />
         </nav>
       </footer>
     </>
-  )
-}
+  );
+};
 
-export default MainFooter
+export default MainFooter;

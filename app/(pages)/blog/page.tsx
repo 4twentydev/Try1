@@ -1,21 +1,22 @@
-import { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
-import { metaData } from "@/config/meta"
+import metaData from "@/config/meta";
 import {
   constructOgImageUri,
   formatDate,
   getUrl,
   shimmer,
   toBase64,
-} from "@/lib/utils"
+} from "@/lib/utils";
 import {
   CalendarDaysIcon as DateIcon,
   ClockIcon as TimeIcon,
-} from "@heroicons/react/24/outline"
-import { allPages, allPosts } from "contentlayer/generated"
-import { compareDesc } from "date-fns"
-import Balancer from "react-wrap-balancer"
+} from "@heroicons/react/24/outline";
+import { allPages, allPosts } from "contentlayer/generated";
+import { compareDesc } from "date-fns";
+import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import Balancer from "react-wrap-balancer";
+import { v4 } from "uuid";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
           metaData.ogTitle,
           "Blog",
           metaData.tags,
-          "/blog"
+          "/blog",
         ),
         width: 1200,
         height: 630,
@@ -49,19 +50,19 @@ export const metadata: Metadata = {
     ],
     creator: metaData.author.twitterAddress,
   },
-}
+};
 
 const BlogPage = async () => {
-  const page = allPages.find((page) => page.slugAsParams === "blog")
+  const page = allPages.find((page) => page.slugAsParams === "blog");
 
   if (!page) {
-    return null
+    return null;
   }
   const posts = allPosts
     .filter((post) => post.published)
     .sort((a, b) => {
-      return compareDesc(new Date(a.date), new Date(b.date))
-    })
+      return compareDesc(new Date(a.date), new Date(b.date));
+    });
   return (
     <>
       <div className="mx-auto max-w-5xl">
@@ -69,7 +70,7 @@ const BlogPage = async () => {
           <div className="absolute -top-1.5 left-0 h-2 w-full bg-gradient-to-r from-white from-20% via-white/5 to-white to-80% dark:from-slate-800 dark:from-20% dark:via-slate-800/5 dark:to-slate-800 dark:to-80%"></div>
           <div className="absolute -bottom-1.5 left-0 h-2 w-full bg-gradient-to-r from-white from-10% via-white/5 to-white to-90% dark:from-slate-800 dark:from-10% dark:via-slate-800/5 dark:to-slate-800 dark:to-90%"></div>
 
-          <h1 className="font-calsans mx-auto text-center text-3xl tracking-tight text-slate-900 dark:text-slate-100">
+          <h1 className="mx-auto text-center font-calsans text-3xl tracking-tight text-slate-900 dark:text-slate-100">
             <Balancer>{page.title}</Balancer>
           </h1>
         </div>
@@ -80,7 +81,7 @@ const BlogPage = async () => {
           <div className="lg:mt-15 mt-10 space-y-5 lg:space-y-5">
             {posts.map((post) => (
               <div
-                key={post._id}
+                key={v4()}
                 className="relative w-full rounded-2xl bg-white/20 p-2.5 shadow-sm shadow-black/5 ring-[0.8px] ring-black/5 dark:bg-white/5 dark:shadow-white/5 dark:ring-white/10"
               >
                 <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 opacity-[0.15] blur-lg dark:from-sky-500 dark:to-sky-600"></div>
@@ -90,7 +91,7 @@ const BlogPage = async () => {
                       href={`blog/${post.slugAsParams}`}
                       className="relative isolate flex flex-col gap-8 lg:flex-row"
                     >
-                      <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
+                      <div className="lg:aspect-square relative aspect-[16/9] sm:aspect-[2/1] lg:w-64 lg:shrink-0">
                         <Image
                           src={post.image}
                           alt={post.title}
@@ -99,7 +100,7 @@ const BlogPage = async () => {
                           placeholder="blur"
                           className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
                           blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                            shimmer(256, 256)
+                            shimmer(256, 256),
                           )}`}
                         />
                         <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
@@ -137,7 +138,7 @@ const BlogPage = async () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default BlogPage
+export default BlogPage;

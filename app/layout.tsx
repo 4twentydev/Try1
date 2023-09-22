@@ -1,29 +1,28 @@
-import "@/styles/tailwind.css"
-
-import type { Metadata } from "next"
-import { Inter as FontSans } from "next/font/google"
-import localFont from "next/font/local"
-import { MainWrapper, ThemeProvider, TwIndicator } from "@/components/main"
-import { metaData } from "@/config/meta"
-import { cn, constructOgImageUri, getUrl } from "@/lib/utils"
-import { Analytics as VercelAnalytics } from "@vercel/analytics/react"
-import { Toaster } from "react-hot-toast"
+import "@/styles/tailwind.css";
+import { MainWrapper, ThemeProvider, TwIndicator } from "@/components/main";
+import metaData from "@/config/meta";
+import { cn, constructOgImageUri, getUrl } from "@/lib/utils";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
+import type { Metadata } from "next";
+import { Inter as FontSans } from "next/font/google";
+import localFont from "next/font/local";
+import { Toaster } from "react-hot-toast";
 
 interface RootLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-})
+});
 
 const calSans = localFont({
   src: "../public/fonts/CalSans-SemiBold.woff2",
   variable: "--font-calsans",
   display: "swap",
-})
+});
 
 export const metadata: Metadata = {
   title: {
@@ -152,7 +151,7 @@ export const metadata: Metadata = {
     title: metaData.title,
     statusBarStyle: "black-translucent",
   },
-}
+};
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
@@ -161,7 +160,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={cn(
           "layout h-full scroll-smooth",
           fontSans.variable,
-          calSans.variable
+          calSans.variable,
         )}
         style={{ WebkitTapHighlightColor: "transparent" }}
       >
@@ -175,5 +174,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

@@ -3,11 +3,10 @@ import {
   PaperAirplaneIcon,
   Squares2X2Icon,
   UserCircleIcon,
-} from "@heroicons/react/24/outline"
+} from "@heroicons/react/24/outline";
+import { Menu } from "types";
 
-import { Menu } from "types"
-
-export const menu: Menu[] = [
+const menus: Menu[] = [
   {
     title: "Home",
     url: "/",
@@ -32,4 +31,6 @@ export const menu: Menu[] = [
     idx: 4,
     icon: PaperAirplaneIcon,
   },
-]
+];
+
+export default menus;

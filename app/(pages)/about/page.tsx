@@ -1,10 +1,10 @@
-import { Metadata } from "next"
-import Image from "next/image"
-import Mdx from "@/components/ui/mdx"
-import { metaData } from "@/config/meta"
-import { constructOgImageUri, getUrl } from "@/lib/utils"
-import { allPages } from "contentlayer/generated"
-import Balancer from "react-wrap-balancer"
+import Mdx from "@/components/ui/mdx";
+import metaData from "@/config/meta";
+import { constructOgImageUri, getUrl } from "@/lib/utils";
+import { allPages } from "contentlayer/generated";
+import { Metadata } from "next";
+import Image from "next/image";
+import Balancer from "react-wrap-balancer";
 
 export const metadata: Metadata = {
   title: "About",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
           metaData.ogTitle,
           "About",
           metaData.tags,
-          "/about"
+          "/about",
         ),
         width: 1200,
         height: 630,
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     ],
     creator: metaData.author.twitterAddress,
   },
-}
+};
 
 const AboutPage = async () => {
-  const page = allPages.find((page) => page.slugAsParams === "about")
+  const page = allPages.find((page) => page.slugAsParams === "about");
 
   if (!page) {
-    return null
+    return null;
   }
 
   return (
@@ -54,7 +54,7 @@ const AboutPage = async () => {
           <div className="absolute -top-1.5 left-0 h-2 w-full bg-gradient-to-r from-white from-20% via-white/5 to-white to-80% dark:from-slate-800 dark:from-20% dark:via-slate-800/5 dark:to-slate-800 dark:to-80%"></div>
           <div className="absolute -bottom-1.5 left-0 h-2 w-full bg-gradient-to-r from-white/10 via-white/5 to-white to-90% dark:from-slate-800/10 dark:via-slate-800/5 dark:to-slate-800 dark:to-90%"></div>
           <div className="absolute -left-1.5 bottom-0 h-full w-2 bg-gradient-to-t from-white/10 via-white/5 to-white dark:from-slate-800/10 dark:via-slate-800/5 dark:to-slate-800"></div>
-          <h1 className="font-calsans mx-auto text-left text-3xl tracking-tight text-slate-900 dark:text-slate-100 md:text-center">
+          <h1 className="mx-auto text-left font-calsans text-3xl tracking-tight text-slate-900 dark:text-slate-100 md:text-center">
             <Balancer>{page.title}</Balancer>
           </h1>
         </div>
@@ -63,7 +63,7 @@ const AboutPage = async () => {
           <span className="mb-4 block text-lg leading-8 text-slate-600 dark:text-slate-400">
             {page.description}
           </span>
-          <div className="ring-photo shadow-photo relative mx-auto mt-4 flex aspect-[16/9] rounded-2xl text-center shadow-md ring-1 sm:aspect-[2/1] lg:aspect-square lg:max-w-3xl">
+          <div className="ring-photo shadow-photo lg:aspect-square relative mx-auto mt-4 flex aspect-[16/9] rounded-2xl text-center shadow-md ring-1 sm:aspect-[2/1] lg:max-w-3xl">
             <Image
               src={page.image ?? ""}
               alt={page.imageAlt ?? ""}
@@ -81,7 +81,7 @@ const AboutPage = async () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

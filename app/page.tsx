@@ -1,24 +1,24 @@
-import Image from "next/image"
 import {
   Main,
   MainContainer,
   MainFooter,
   MainGrid,
   MainHeader,
-} from "@/components/main"
-import { Project } from "@/components/project"
-import { allPages, allProjects } from "contentlayer/generated"
-import { compareDesc } from "date-fns"
-import Balancer from "react-wrap-balancer"
+} from "@/components/main";
+import { Project } from "@/components/project";
+import { allPages, allProjects } from "contentlayer/generated";
+import { compareDesc } from "date-fns";
+import Image from "next/image";
+import Balancer from "react-wrap-balancer";
 
 const HomePage = async () => {
-  const page = allPages.find((page) => page.slugAsParams === "home")
+  const page = allPages.find((page) => page.slugAsParams === "home");
   const projects = allProjects.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date))
-  })
+    return compareDesc(new Date(a.date), new Date(b.date));
+  });
 
   if (!page || !projects) {
-    return null
+    return null;
   }
 
   return (
@@ -54,7 +54,7 @@ const HomePage = async () => {
       </MainContainer>
       <MainFooter />
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
