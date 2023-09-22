@@ -16,9 +16,7 @@ const ProjectContainer: FC<ProjectContainerProps> = ({
     <>
       <div
         className={cn(
-          "relative px-6 py-4 sm:px-10 sm:py-6",
-          category === "Android" && "lg:grid lg:grid-cols-2",
-          category === "Web" && "lg:grid lg:grid-cols-1",
+          "relative px-6 py-4 sm:px-10 sm:py-6 lg:grid lg:grid-cols-2",
           className,
         )}
       >

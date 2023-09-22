@@ -5,6 +5,7 @@ import { cn, constructOgImageUri, getUrl } from "@/lib/utils";
 import { allPages, allSocials } from "contentlayer/generated";
 import { Metadata } from "next";
 import Balancer from "react-wrap-balancer";
+import { v4 } from "uuid";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -80,7 +81,7 @@ const ContactPage = () => {
           <span className="text-slate-900"></span>
 
           {socials?.map(
-            (social, idx) =>
+            (social) =>
               social && (
                 <a
                   className="block rounded-xl bg-white p-8 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-md dark:bg-slate-700/50 dark:shadow-white/5 dark:ring-white/10"
@@ -88,7 +89,7 @@ const ContactPage = () => {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Twitter"
-                  key={idx + social.title}
+                  key={v4()}
                 >
                   {social.icon === "GithubIcon" && (
                     <GithubIcon className={cn("h-6 w-6", social.iconColor)} />

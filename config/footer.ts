@@ -1,4 +1,4 @@
-import { GithubIcon, TwitterIcon } from "@/icons";
+import { GithubIcon, LinkedInIcon, TwitterIcon } from "@/icons";
 import { Footer } from "types";
 
 const footer: Footer = {
@@ -13,6 +13,11 @@ const footer: Footer = {
       name: "GitHub",
       href: "https://github.com/timtbdev/projects",
       icon: GithubIcon,
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/tumur-bazarragchaa-76b979290/",
+      icon: LinkedInIcon,
     },
   ],
 };

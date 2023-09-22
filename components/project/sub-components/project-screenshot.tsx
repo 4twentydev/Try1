@@ -39,23 +39,14 @@ const ProjectScreenShot: FC<ProjectScreenShotProps> = ({
               {/* End of Mobile Screen */}
             </>
           ) : (
-            <>
-              <div className="relative mx-auto h-[172px] max-w-[301px] rounded-t-xl border-[8px] border-gray-800 bg-gray-800 dark:border-gray-800 md:h-[294px] md:max-w-[512px]">
-                <div className="h-[156px] overflow-hidden rounded-lg bg-white dark:bg-gray-800 md:h-[278px]">
-                  <Image
-                    src={screenshot}
-                    className="object-fit h-[278px] w-[512px] rounded-xl sm:object-cover"
-                    width={512}
-                    height={278}
-                    alt="Screenshot"
-                    priority
-                  />
-                </div>
-              </div>
-              <div className="relative mx-auto h-[17px] max-w-[351px] rounded-b-xl rounded-t-sm bg-gray-900 dark:bg-gray-700 md:h-[21px] md:max-w-[597px]">
-                <div className="absolute left-1/2 top-0 h-[5px] w-[56px] -translate-x-1/2 rounded-b-xl bg-gray-800 md:h-[8px] md:w-[96px]"></div>
-              </div>
-            </>
+            <Image
+              src={screenshot}
+              className="object-fit h-[520px] w-[430px] rounded-xl sm:object-cover"
+              width={430}
+              height={520}
+              alt="Screenshot"
+              priority
+            />
           )}
         </div>
       </div>
