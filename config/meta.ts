@@ -9,7 +9,7 @@ const metaData: MetaAttributes = {
     twitterAddress: "@timtbdev",
   },
   description:
-    "Tim is a web and mobile developer based in Hayward, California.",
+    "Tim is a self taught web and mobile developer based in Hayward, California.",
   tags: ["Web", "Mobile", "Developer"],
 };
 
