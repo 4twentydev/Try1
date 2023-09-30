@@ -1,3 +1,4 @@
+import { shimmer, toBase64 } from "@/lib/utils";
 import Image from "next/image";
 import { FC } from "react";
 
@@ -32,6 +33,9 @@ const ProjectScreenShot: FC<ProjectScreenShotProps> = ({
                     alt="Screenshot"
                     width={272}
                     height={520}
+                    placeholder={`data:image/svg+xml;base64,${toBase64(
+                      shimmer(256, 256),
+                    )}`}
                     className="h-[520px] w-[272px] object-contain object-center"
                   />
                 </div>

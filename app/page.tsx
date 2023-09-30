@@ -6,6 +6,7 @@ import {
   MainHeader,
 } from "@/components/main";
 import { Project } from "@/components/project";
+import { shimmer, toBase64 } from "@/lib/utils";
 import { allPages, allProjects } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import Image from "next/image";
@@ -34,6 +35,9 @@ const HomePage = async () => {
                 alt={page.imageAlt ?? ""}
                 width={96}
                 height={96}
+                placeholder={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(256, 256),
+                )}`}
                 className="mx-auto mb-2 rounded-full bg-gray-100 shadow-sm shadow-gray-800/50 ring-1 ring-gray-900/5  dark:bg-neutral-800/90 dark:ring-white/10"
                 priority={true}
               />

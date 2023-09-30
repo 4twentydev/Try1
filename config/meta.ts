@@ -9,8 +9,8 @@ const metaData: MetaAttributes = {
     twitterAddress: "@timtbdev",
   },
   description:
-    "Tim is a self taught web and mobile developer based in Hayward, California.",
-  tags: ["Web", "Mobile", "Developer"],
+    "Tim is a self taught Frontend developer based in Hayward, California.",
+  tags: ["Frontend", "Developer"],
 };
 
 export default metaData;
