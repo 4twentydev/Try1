@@ -1,5 +1,5 @@
 import OgImage from "@/components/og/og-image";
-import { ImageResponse } from "next/og";
+import { ImageResponse } from "next/server";
 import * as z from "zod";
 
 /* eslint-disable jsx-a11y/alt-text */
