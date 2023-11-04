@@ -1,6 +1,6 @@
-import { ImageResponse } from "next/server"
-import OgImage from "@/components/og/og-image"
-import * as z from "zod"
+import OgImage from "@/components/og/og-image";
+import { ImageResponse } from "next/og";
+import * as z from "zod";
 
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
@@ -10,25 +10,25 @@ const ogImageSchema = z.object({
   subTitle: z.string(),
   tags: z.string().array(),
   slug: z.string(),
-})
+});
 
-export const runtime = "edge"
+export const runtime = "edge";
 
 const interBold = fetch(
-  new URL("../../../public/fonts/Inter-Bold.ttf", import.meta.url)
-).then((res) => res.arrayBuffer())
+  new URL("../../../public/fonts/Inter-Bold.ttf", import.meta.url),
+).then((res) => res.arrayBuffer());
 
 export async function GET(req: Request) {
   try {
-    const { searchParams } = new URL(`${req.url}`)
-    const fontBold = await interBold
+    const { searchParams } = new URL(`${req.url}`);
+    const fontBold = await interBold;
 
     const { title, subTitle, tags, slug } = ogImageSchema.parse({
       title: searchParams.get("title"),
       subTitle: searchParams.get("subTitle"),
       tags: searchParams.getAll("tags"),
       slug: searchParams.get("slug"),
-    })
+    });
 
     return new ImageResponse(
       <OgImage title={title} subTitle={subTitle} tags={tags} slug={slug} />,
@@ -43,11 +43,11 @@ export async function GET(req: Request) {
             style: "normal",
           },
         ],
-      }
-    )
+      },
+    );
   } catch (error) {
     return new Response(`Failed to generate image`, {
       status: 500,
-    })
+    });
   }
 }
