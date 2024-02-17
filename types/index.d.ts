@@ -1,88 +1,76 @@
-import { Icon } from "@heroicons/react"
-import { ReadTimeResults } from "reading-time"
+import { Icon } from "@heroicons/react";
+import { ReadTimeResults } from "reading-time";
 
-export type Menu = {
-  title: string
-  url: string
-  idx: number
-  icon: Icon
-}
+type ProjectItemTechStack = {
+  title: string;
+  stacks: string[];
+};
 
-export type Footer = {
-  socials: Social[]
-  copyright: string
-}
+export type ProjectItemType = {
+  title: string;
+  iconUrl: string;
+  iconDescription: string;
+  screenShotUrl: string;
+  screenShotDescription: string;
+  link: string;
+  type: string;
+  date: string;
+  techStacks: ProjectItemTechStack[];
+  keywords: string[];
+};
 
-export type Social = {
-  name: string
-  href: string
-  icon: Icon
-}
+export type AboutPageContent = {
+  title: string;
+  description: string;
+};
 
-export type MetaAttributes = {
-  title: string
-  ogTitle: string
-  author: { name: string; twitterUrl: string; twitterAddress: string }
-  description: string
-  tags: Array<string>
-}
+export type AboutPageType = {
+  title: string;
+  description: string;
+  profileImageUrl: string;
+  profileImageDescription: string;
+  profileImageCaption: string;
+  date: string;
+  content: AboutPageContent[];
+};
 
-export type Author = {
-  name: string
-  role: string
-  imageUrl: string
-}
+export type MenuType = {
+  title: string;
+  url: string;
+  idx: number;
+  icon: Icon;
+};
 
-export type PostAttributes = {
-  id: string
-  title: string
-  slug: string
-  description?: string
-  imageUrl: string
-  date: string
-  readingTime: json
-}
+export type FooterType = {
+  socials: SocialType[];
+  copyright: string;
+};
 
-export type ImageAttributes = {
-  href: string
-  description: string
-}
+export type SocialType = {
+  name: string;
+  href: string;
+  icon: Icon;
+};
 
-// Dashboard (DB) - Admin Panel
+export type MetaType = {
+  title: string;
+  ogTitle: string;
+  author: { name: string; twitterUrl: string; twitterAddress: string };
+  description: string;
+  tags: Array<string>;
+};
 
-export type DBNavItem = {
-  name: string
-  href: string
-}
-
-export type DBItemType = {
-  title: string
-  description: string
-  baseUrl: string
-  pageUrl: string
-  empty: {
-    title: string
-    descripton: string
-  }
-  notFound: string
-  tableHeaders: string[]
-  apiUrl: string
-  editUrl: string
-}
-
-export type DBCategoryType = {
-  value: string
-  label: string
-}
-
-export type User = {
-  id: string
-  name: string
-  email: string
-  image: string
-}
-
-type Feature = {
-  title: string
-  description?: string
-}
+export type PostType = {
+  id: string;
+  title: string;
+  slug: string;
+  description?: string;
+  imageUrl: string;
+  imageDescription: string;
+  date: string;
+  category: string;
+  readingTime: number;
+  author: { name: string; image: string; twitter: string };
+  tags: Array<string>;
+  content: string;
+};

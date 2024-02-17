@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
-import { Menu } from "@/types";
+import { MenuType } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
 import { v4 } from "uuid";
 
 interface DesktopNavProps {
-  menus: Menu[];
+  menus: MenuType[];
 }
 
 const DesktopNav: FC<DesktopNavProps> = ({ menus }) => {

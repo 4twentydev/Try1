@@ -2,11 +2,11 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
-import { Menu } from "types";
+import { MenuType } from "types";
 import { v4 } from "uuid";
 
 interface MobileBottomNavProps {
-  menus: Menu[];
+  menus: MenuType[];
 }
 
 const MobileBottomNav: FC<MobileBottomNavProps> = ({ menus }) => {

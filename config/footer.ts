@@ -1,7 +1,7 @@
 import { GithubIcon, LinkedInIcon, TwitterIcon } from "@/icons";
-import { Footer } from "types";
+import { FooterType } from "types";
 
-const footer: Footer = {
+const footer: FooterType = {
   copyright: "2023 Tim. All rights reserved. No Cookies.",
   socials: [
     {

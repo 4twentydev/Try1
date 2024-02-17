@@ -3,7 +3,7 @@
 import { Logo, Toggle } from "@/components/navigations/core";
 import { DesktopNav } from "@/components/navigations/desktop";
 import { MobileMenuButton, MobileNav } from "@/components/navigations/mobile";
-import menus from "@/config/menus";
+import menus from "@/config/menu";
 import { Disclosure } from "@headlessui/react";
 import { usePathname } from "next/navigation";
 import { Fragment } from "react";

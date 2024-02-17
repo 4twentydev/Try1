@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { Footer } from "types";
+import { FooterType } from "types";
 import { v4 } from "uuid";
 
 interface DesktopBottomNavProps {
-  footer: Footer;
+  footer: FooterType;
 }
 const DesktopBottomNav: FC<DesktopBottomNavProps> = ({ footer }) => {
   return (

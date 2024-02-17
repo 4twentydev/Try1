@@ -1,16 +1,14 @@
 import { cn } from "@/lib/utils";
 import { FC, ReactNode } from "react";
 
-interface ProjectContainerProps {
+interface ProjectItemContainerProps {
   children: ReactNode;
   className?: string;
-  category: string;
 }
 
-const ProjectContainer: FC<ProjectContainerProps> = ({
+const ProjectItemContainer: FC<ProjectItemContainerProps> = ({
   children,
   className = "",
-  category,
 }) => {
   return (
     <>
@@ -26,4 +24,4 @@ const ProjectContainer: FC<ProjectContainerProps> = ({
   );
 };
 
-export default ProjectContainer;
+export default ProjectItemContainer;

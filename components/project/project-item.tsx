@@ -1,49 +1,56 @@
-import { FC } from "react"
-import { formatDate } from "@/lib/utils"
+import { formatDate } from "@/lib/utils";
+import { ProjectItemType } from "@/types";
+import { FC } from "react";
+import { v4 } from "uuid";
+import ProjectItemBrowser from "./project-item-browser";
+import ProjectItemContainer from "./project-item-container";
+import ProjectItemDate from "./project-item-date";
+import ProjectItemHeader from "./project-item-header";
+import ProjectItemScreenShot from "./project-item-screenshot";
+import ProjectItemTechStacks from "./project-item-tech-stacks";
+import ProjectItemVerticalLine from "./project-item-vertical-line";
 
-import {
-  ProjectBrowser,
-  ProjectContainer,
-  ProjectDate,
-  ProjectFeatures,
-  ProjectHeader,
-  ProjectLine,
-  ProjectScreenShot,
-} from "./sub-components"
-import { Project } from "contentlayer/generated"
-import {v4} from "uuid"
-
-interface ProjectProps {
-  project: Project,
-  line: boolean
+interface ProjectItemProps {
+  project: ProjectItemType;
+  isLastItem: boolean;
 }
 
-const Project: FC<ProjectProps> = ({
-  project,
-  line,
-}) => {
-
-console.log("Type :", project.type)
-
+const ProjectItem: FC<ProjectItemProps> = ({ project, isLastItem }) => {
   return (
     <>
       <div className="mx-auto max-w-5xl px-4 sm:px-8">
         {/* Body */}
-        <ProjectDate year={formatDate(project.date)} />
-        <ProjectLine />
-        <ProjectBrowser key={v4()} url={project.url ? project.url : ""}>
-          <ProjectContainer category={project.category}>
+        <ProjectItemDate year={formatDate(project.date)} />
+        <ProjectItemVerticalLine />
+        <ProjectItemBrowser key={v4()} url={project.link ? project.link : ""}>
+          <ProjectItemContainer>
             <div className="overflow-hidden">
-              <ProjectHeader title={project.title} category={project.category} tags={project?.tags ? project?.tags : []} icon={project.icon ? project.icon : ""} />
-              <ProjectFeatures features={project.features} category={project.category} />
+              <ProjectItemHeader
+                title={project.title}
+                type={project.type}
+                keywords={project?.keywords ? project?.keywords : []}
+                iconUrl={project.iconUrl ? project.iconUrl : ""}
+                iconDescription={
+                  project.iconDescription ? project.iconDescription : ""
+                }
+              />
+              <ProjectItemTechStacks techStacks={project.techStacks} />
             </div>
-            <ProjectScreenShot category={project.category} screenshot={project.screenshot ? project.screenshot : ""} />
-          </ProjectContainer>
-        </ProjectBrowser>
+            <ProjectItemScreenShot
+              screenshotUrl={project.screenShotUrl ? project.screenShotUrl : ""}
+              screenshotDescription={
+                project.screenShotDescription
+                  ? project.screenShotDescription
+                  : ""
+              }
+              type={project.type}
+            />
+          </ProjectItemContainer>
+        </ProjectItemBrowser>
       </div>
-      {!line && <ProjectLine />}
+      {!isLastItem && <ProjectItemVerticalLine />}
     </>
-  )
-}
+  );
+};
 
-export default Project
+export default ProjectItem;

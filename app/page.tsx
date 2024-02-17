@@ -5,23 +5,12 @@ import {
   MainGrid,
   MainHeader,
 } from "@/components/main";
-import { Project } from "@/components/project";
+import { ProjectItem } from "@/components/project";
+import { homePageConfig, projectPageConfig } from "@/config";
 import { shimmer, toBase64 } from "@/lib/utils";
-import { allPages, allProjects } from "contentlayer/generated";
-import { compareDesc } from "date-fns";
 import Image from "next/image";
-import Balancer from "react-wrap-balancer";
 
 const HomePage = async () => {
-  const page = allPages.find((page) => page.slugAsParams === "home");
-  const projects = allProjects.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date));
-  });
-
-  if (!page || !projects) {
-    return null;
-  }
-
   return (
     <>
       <MainHeader />
@@ -31,8 +20,8 @@ const HomePage = async () => {
             {" "}
             <div className="mx-auto mb-4 text-center">
               <Image
-                src={page.image ?? ""}
-                alt={page.imageAlt ?? ""}
+                src={homePageConfig.profileImage ?? ""}
+                alt={homePageConfig.profileImageDescription ?? ""}
                 width={96}
                 height={96}
                 placeholder={`data:image/svg+xml;base64,${toBase64(
@@ -42,16 +31,19 @@ const HomePage = async () => {
                 priority={true}
               />
 
-              <h1 className="mb-2 font-calsans text-4xl tracking-tight text-slate-900 dark:text-slate-100">
-                <Balancer>{page.title}</Balancer>
+              <h1 className="mb-2 text-balance font-calsans text-4xl tracking-tight text-slate-900 dark:text-slate-100">
+                {homePageConfig.title}
               </h1>
 
-              <span className="text-lg leading-8 text-slate-600 dark:text-slate-500">
-                <Balancer>{page.description}</Balancer>
+              <span className="text-balance text-lg leading-8 text-slate-600 dark:text-slate-500">
+                {homePageConfig.subTitle}
               </span>
             </div>
-            {projects.map((project, idx) => (
-              <Project project={project} line={idx === projects.length - 1} />
+            {projectPageConfig.map((project, idx) => (
+              <ProjectItem
+                project={project}
+                isLastItem={idx === projectPageConfig.length - 1}
+              />
             ))}
           </Main>
         </MainGrid>

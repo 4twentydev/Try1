@@ -3,14 +3,8 @@
 import { DesktopBottomNav } from "@/components/navigations/desktop";
 import { MobileBottomNav } from "@/components/navigations/mobile";
 import footer from "@/config/footer";
-import menus from "@/config/menus";
+import menus from "@/config/menu";
 import { usePathname } from "next/navigation";
-
-const variants = {
-  visible: { opacity: 1, y: 0 },
-  initial: { opacity: 0, y: 75 },
-  hidden: { opacity: 0, y: 25 },
-};
 
 const MainFooter = () => {
   const currentPath = usePathname();

@@ -1,6 +1,6 @@
 import "@/styles/tailwind.css";
 import { MainWrapper, ThemeProvider, TwIndicator } from "@/components/main";
-import metaData from "@/config/meta";
+import { metaConfig } from "@/config";
 import { cn, constructOgImageUri, getUrl } from "@/lib/utils";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
@@ -26,12 +26,12 @@ const calSans = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: metaData.title,
+    default: metaConfig.title,
     template: "%s | Portfolio",
   },
-  generator: metaData.author.name,
-  applicationName: metaData.title,
-  description: metaData.description,
+  generator: metaConfig.author.name,
+  applicationName: metaConfig.title,
+  description: metaConfig.description,
   referrer: "origin-when-cross-origin",
   keywords: [
     "Tim",
@@ -58,12 +58,12 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: metaData.author.name,
-      url: metaData.author.twitterUrl,
+      name: metaConfig.author.name,
+      url: metaConfig.author.twitterUrl,
     },
   ],
-  creator: metaData.author.name,
-  publisher: metaData.author.name,
+  creator: metaConfig.author.name,
+  publisher: metaConfig.author.name,
   formatDetection: {
     email: false,
     address: false,
@@ -76,13 +76,6 @@ export const metadata: Metadata = {
       "en-US": "/en-US",
       "de-DE": "/de-DE",
     },
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-    viewportFit: "cover",
   },
   robots: {
     index: false,
@@ -127,28 +120,35 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: getUrl(),
-    title: metaData.title,
-    description: metaData.description,
-    siteName: metaData.title,
+    title: metaConfig.title,
+    description: metaConfig.description,
+    siteName: metaConfig.title,
     images: [
       {
-        url: constructOgImageUri(metaData.ogTitle, "Home", metaData.tags, "/"),
+        url: constructOgImageUri(
+          metaConfig.ogTitle,
+          "Home",
+          metaConfig.tags,
+          "/",
+        ),
         width: 1200,
         height: 630,
-        alt: metaData.title,
+        alt: metaConfig.title,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: metaData.ogTitle,
-    description: metaData.description,
-    images: [constructOgImageUri(metaData.ogTitle, "Home", metaData.tags, "/")],
-    creator: metaData.author.twitterAddress,
+    title: metaConfig.ogTitle,
+    description: metaConfig.description,
+    images: [
+      constructOgImageUri(metaConfig.ogTitle, "Home", metaConfig.tags, "/"),
+    ],
+    creator: metaConfig.author.twitterAddress,
   },
   appleWebApp: {
     capable: true,
-    title: metaData.title,
+    title: metaConfig.title,
     statusBarStyle: "black-translucent",
   },
 };

@@ -2,14 +2,16 @@ import { shimmer, toBase64 } from "@/lib/utils";
 import Image from "next/image";
 import { FC } from "react";
 
-interface ProjectScreenShotProps {
-  screenshot: string;
-  category: string;
+interface ProjectItemScreenShotProps {
+  screenshotUrl: string;
+  screenshotDescription: string;
+  type: string;
 }
 
-const ProjectScreenShot: FC<ProjectScreenShotProps> = ({
-  screenshot,
-  category,
+const ProjectItemScreenShot: FC<ProjectItemScreenShotProps> = ({
+  screenshotUrl,
+  screenshotDescription,
+  type,
 }) => {
   return (
     <>
@@ -19,7 +21,7 @@ const ProjectScreenShot: FC<ProjectScreenShotProps> = ({
             Screenshot
           </div>
 
-          {category === "Android" ? (
+          {type === "Android" ? (
             <>
               {/* Mobile Screen */}
               <div className="relative mx-auto h-[550px] w-[300px] rounded-[2.5rem] border-[14px] border-gray-800 bg-gray-800 shadow-xl dark:border-gray-800">
@@ -29,8 +31,8 @@ const ProjectScreenShot: FC<ProjectScreenShotProps> = ({
                 <div className="absolute -right-[17px] top-[142px] h-[64px] w-[3px] rounded-r-lg bg-gray-800"></div>
                 <div className="h-[520px] w-[272px] overflow-hidden rounded-[2rem] bg-white dark:bg-gray-800">
                   <Image
-                    src={screenshot}
-                    alt="Screenshot"
+                    src={screenshotUrl}
+                    alt={screenshotDescription}
                     width={272}
                     height={520}
                     placeholder={`data:image/svg+xml;base64,${toBase64(
@@ -44,11 +46,11 @@ const ProjectScreenShot: FC<ProjectScreenShotProps> = ({
             </>
           ) : (
             <Image
-              src={screenshot}
+              src={screenshotUrl}
+              alt={screenshotDescription}
               className="object-fit h-[520px] w-[430px] rounded-xl sm:object-cover"
               width={430}
               height={520}
-              alt="Screenshot"
               priority
             />
           )}
@@ -58,4 +60,4 @@ const ProjectScreenShot: FC<ProjectScreenShotProps> = ({
   );
 };
 
-export default ProjectScreenShot;
+export default ProjectItemScreenShot;

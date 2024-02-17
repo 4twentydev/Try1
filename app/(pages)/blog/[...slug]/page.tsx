@@ -1,7 +1,6 @@
 import BackButton from "@/components/ui/back-button";
-import Mdx from "@/components/ui/mdx";
+import { posts } from "@/config";
 import { constructOgImageUri, getUrl } from "@/lib/utils";
-import { allPosts } from "contentlayer/generated";
 import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -14,7 +13,7 @@ interface PostPageProps {
 
 async function getPostFromParams(params: { slug: string[] }) {
   const slug = params?.slug?.join("/");
-  const post = allPosts.find((post) => post.slugAsParams === slug);
+  const post = posts.find((post) => post.slug === slug);
 
   if (!post) {
     null;
@@ -47,7 +46,7 @@ export async function generateMetadata({
       images: [
         {
           url: constructOgImageUri(
-            post.description,
+            post.description ? post.description : post.title,
             post.title,
             post.tags,
             post.slug,
@@ -63,7 +62,12 @@ export async function generateMetadata({
       title: post.title,
       description: post.description,
       images: [
-        constructOgImageUri(post.description, post.title, post.tags, post.slug),
+        constructOgImageUri(
+          post.description || post.title,
+          post.title,
+          post.tags,
+          post.slug,
+        ),
       ],
     },
   };
@@ -72,8 +76,8 @@ export async function generateMetadata({
 export async function generateStaticParams(): Promise<
   PostPageProps["params"][]
 > {
-  return allPosts.map((post) => ({
-    slug: post.slugAsParams.split("/"),
+  return posts.map((post) => ({
+    slug: post.slug.split("/"),
   }));
 }
 
@@ -105,19 +109,19 @@ export default async function PostPage({ params }: PostPageProps) {
           </span>
           <div className="ring-photo shadow-photo lg:aspect-square relative mx-auto mt-4 flex aspect-[16/9] rounded-2xl text-center shadow-md ring-1 sm:aspect-[2/1] lg:max-w-3xl">
             <Image
-              src={post.image}
-              alt="Profile photo"
+              src={post.imageUrl}
+              alt={post.imageDescription}
               fill={true}
               priority={true}
               className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
             />
           </div>
           <figcaption className="my-4 text-sm text-slate-400 dark:text-slate-500 sm:mb-6">
-            {post.imageCaption}
+            {post.imageDescription}
           </figcaption>
         </div>
-        <div className="relative mx-auto max-w-3xl border-slate-500/50 px-6">
-          <Mdx code={post.body.code} />
+        <div className="prose relative mx-auto max-w-3xl border-slate-500/50 px-6 md:prose-lg lg:prose-xl">
+          {post.content}
         </div>
       </div>
     </div>

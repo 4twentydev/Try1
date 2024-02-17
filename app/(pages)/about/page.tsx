@@ -1,10 +1,8 @@
-import Mdx from "@/components/ui/mdx";
-import metaData from "@/config/meta";
+import { aboutPageConfig, metaConfig } from "@/config";
 import { constructOgImageUri, getUrl } from "@/lib/utils";
-import { allPages } from "contentlayer/generated";
 import { Metadata } from "next";
 import Image from "next/image";
-import Balancer from "react-wrap-balancer";
+import { v4 } from "uuid";
 
 export const metadata: Metadata = {
   title: "About",
@@ -12,72 +10,75 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: `${getUrl()}/about`,
-    title: metaData.title,
-    description: metaData.description,
-    siteName: metaData.title,
+    title: metaConfig.title,
+    description: metaConfig.description,
+    siteName: metaConfig.title,
     images: [
       {
         url: constructOgImageUri(
-          metaData.ogTitle,
+          metaConfig.ogTitle,
           "About",
-          metaData.tags,
+          metaConfig.tags,
           "/about",
         ),
         width: 1200,
         height: 630,
-        alt: metaData.title,
+        alt: metaConfig.title,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: metaData.ogTitle,
-    description: metaData.description,
+    title: metaConfig.ogTitle,
+    description: metaConfig.description,
     images: [
-      constructOgImageUri(metaData.ogTitle, "About", metaData.tags, "/about"),
+      constructOgImageUri(
+        metaConfig.ogTitle,
+        "About",
+        metaConfig.tags,
+        "/about",
+      ),
     ],
-    creator: metaData.author.twitterAddress,
+    creator: metaConfig.author.twitterAddress,
   },
 };
 
 const AboutPage = async () => {
-  const page = allPages.find((page) => page.slugAsParams === "about");
-
-  if (!page) {
-    return null;
-  }
-
   return (
     <>
       <div className="mx-auto max-w-5xl">
-        <div className="relative mx-auto max-w-3xl border-b border-l border-dashed border-slate-500/50 px-6 py-4 md:border-y">
-          <div className="absolute -top-1.5 left-0 h-2 w-full bg-gradient-to-r from-white from-20% via-white/5 to-white to-80% dark:from-slate-800 dark:from-20% dark:via-slate-800/5 dark:to-slate-800 dark:to-80%"></div>
-          <div className="absolute -bottom-1.5 left-0 h-2 w-full bg-gradient-to-r from-white/10 via-white/5 to-white to-90% dark:from-slate-800/10 dark:via-slate-800/5 dark:to-slate-800 dark:to-90%"></div>
-          <div className="absolute -left-1.5 bottom-0 h-full w-2 bg-gradient-to-t from-white/10 via-white/5 to-white dark:from-slate-800/10 dark:via-slate-800/5 dark:to-slate-800"></div>
-          <h1 className="mx-auto text-left font-calsans text-4xl tracking-tight text-slate-900 dark:text-slate-100 md:text-center">
-            <Balancer>{page.title}</Balancer>
-          </h1>
-        </div>
-        <div className="relative mx-auto max-w-3xl border-l border-dashed border-slate-500/50 px-6 pt-4">
-          <div className="absolute -left-1.5 bottom-0 h-full w-2 bg-gradient-to-b from-white/10 from-20% via-white/5 via-50% to-white to-80% dark:from-slate-800/10 dark:via-slate-800/5 dark:to-slate-800 dark:to-80%"></div>
-          <span className="mb-4 block text-lg leading-8 text-slate-600 dark:text-slate-400">
-            {page.description}
-          </span>
+        <div className="relative mx-auto max-w-3xl px-6 pt-4">
+          <div className="scroll-m-20 border-b pb-1 text-3xl font-semibold tracking-tight first:mt-0">
+            {aboutPageConfig.title}
+          </div>
+          <div className="mt-4 text-wrap text-lg leading-8 text-slate-600 dark:text-slate-400">
+            {aboutPageConfig.description}
+          </div>
+          {/* Profile Image */}
           <div className="ring-photo shadow-photo lg:aspect-square relative mx-auto mt-4 flex aspect-[16/9] rounded-2xl text-center shadow-md ring-1 sm:aspect-[2/1] lg:max-w-3xl">
             <Image
-              src={page.image ?? ""}
-              alt={page.imageAlt ?? ""}
+              src={aboutPageConfig.profileImageUrl ?? ""}
+              alt={aboutPageConfig.profileImageDescription ?? ""}
               fill={true}
               priority={true}
               className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
             />
           </div>
           <figcaption className="pt-4 text-sm text-slate-500">
-            {page.imageCaption}
+            {aboutPageConfig.profileImageCaption}
           </figcaption>
         </div>
         <div className="relative mx-auto max-w-3xl px-6">
-          <Mdx code={page.body.code} />
+          {aboutPageConfig.content.map((section) => (
+            <div id={v4()} className="mt-5">
+              <div className="scroll-m-20 border-b pb-1 text-3xl font-semibold tracking-tight first:mt-0">
+                {section.title}
+              </div>
+              <div className="mt-4 text-wrap text-lg leading-8 text-slate-600 dark:text-slate-400">
+                {section.description}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </>

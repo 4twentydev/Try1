@@ -1,24 +1,24 @@
-import { ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export function formatDate(input: string | number): string {
-  const date = new Date(input)
+  const date = new Date(input);
   return date.toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
     year: "numeric",
-  })
+  });
 }
 
 export function getUrl() {
   if (process.env.NODE_ENV === "development") {
-    return process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
+    return process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
   } else {
-    return process.env.NEXT_PUBLIC_WEB_URL || "https://timtb.dev"
+    return process.env.NEXT_PUBLIC_WEB_URL || "https://timtb.dev";
   }
 }
 
@@ -26,7 +26,7 @@ export function constructOgImageUri(
   subTitle: string,
   title: string,
   tags: Array<string>,
-  slug: string
+  slug: string,
 ) {
   const uri = [
     `?title=${encodeURIComponent(title)}`,
@@ -34,28 +34,29 @@ export function constructOgImageUri(
     `${tags.map((tag) => `&tags=${encodeURIComponent(tag)}`).join("")}`,
     `&slug=${encodeURIComponent(slug)}`,
     // Joining a multiline string for readability.
-  ].join("")
+  ].join("");
 
-  return `${getUrl()}/api/og${uri}`
+  return `${getUrl()}/api/og${uri}`;
 }
 
+// BlurData for loading images with blur effect
 export const shimmer = (w: number, h: number) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <linearGradient id="g">
-      <stop stop-color="#333" offset="20%" />
-      <stop stop-color="#222" offset="50%" />
-      <stop stop-color="#333" offset="70%" />
+      <stop stop-color="#d1d5db" offset="20%" />
+      <stop stop-color="#d7dade" offset="50%" />
+      <stop stop-color="#d1d5db" offset="70%" />
     </linearGradient>
   </defs>
-  <rect width="${w}" height="${h}" fill="#333" />
+  <rect width="${w}" height="${h}" fill="#d1d5db" />
   <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
   <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-</svg>`
+</svg>`;
 
 export const toBase64 = (str: string) =>
   typeof window === "undefined"
     ? Buffer.from(str).toString("base64")
-    : window.btoa(str)
+    : window.btoa(str);
 
-export const removeLastChar = (str: string) => str.slice(0, -1)
+export const removeLastChar = (str: string) => str.slice(0, -1);

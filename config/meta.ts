@@ -1,6 +1,6 @@
-import { MetaAttributes } from "types";
+import { MetaType } from "types";
 
-const metaData: MetaAttributes = {
+const metaConfig: MetaType = {
   title: "Tim | Portfolio",
   ogTitle: "Tim / Portfolio",
   author: {
@@ -13,4 +13,4 @@ const metaData: MetaAttributes = {
   tags: ["Frontend", "Developer"],
 };
 
-export default metaData;
+export default metaConfig;

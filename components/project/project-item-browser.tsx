@@ -1,11 +1,11 @@
-import { FC, ReactNode } from "react"
+import { FC, ReactNode } from "react";
 
-interface ProjectBrowserProps {
-  children: ReactNode
-  url: string
+interface ProjectItemBrowserProps {
+  children: ReactNode;
+  url: string;
 }
 
-const ProjectBrowser: FC<ProjectBrowserProps> = ({ children, url }) => {
+const ProjectItemBrowser: FC<ProjectItemBrowserProps> = ({ children, url }) => {
   return (
     <>
       <div className="relative w-full rounded-2xl bg-white/20 p-2.5 shadow-sm shadow-black/5 ring-[0.8px] ring-black/5 dark:bg-white/5 dark:shadow-white/5 dark:ring-white/10">
@@ -38,7 +38,7 @@ const ProjectBrowser: FC<ProjectBrowserProps> = ({ children, url }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ProjectBrowser
+export default ProjectItemBrowser;

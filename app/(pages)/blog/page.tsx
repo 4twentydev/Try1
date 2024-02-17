@@ -1,4 +1,4 @@
-import metaData from "@/config/meta";
+import { metaConfig, posts } from "@/config";
 import {
   constructOgImageUri,
   formatDate,
@@ -10,12 +10,9 @@ import {
   CalendarDaysIcon as DateIcon,
   ClockIcon as TimeIcon,
 } from "@heroicons/react/24/outline";
-import { allPages, allPosts } from "contentlayer/generated";
-import { compareDesc } from "date-fns";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Balancer from "react-wrap-balancer";
 import { v4 } from "uuid";
 
 export const metadata: Metadata = {
@@ -24,61 +21,41 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: `${getUrl()}/blog`,
-    title: metaData.title,
-    description: metaData.description,
-    siteName: metaData.title,
+    title: metaConfig.title,
+    description: metaConfig.description,
+    siteName: metaConfig.title,
     images: [
       {
         url: constructOgImageUri(
-          metaData.ogTitle,
+          metaConfig.ogTitle,
           "Blog",
-          metaData.tags,
+          metaConfig.tags,
           "/blog",
         ),
         width: 1200,
         height: 630,
-        alt: metaData.title,
+        alt: metaConfig.title,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: metaData.ogTitle,
-    description: metaData.description,
+    title: metaConfig.ogTitle,
+    description: metaConfig.description,
     images: [
-      constructOgImageUri(metaData.ogTitle, "Blog", metaData.tags, "/blog"),
+      constructOgImageUri(metaConfig.ogTitle, "Blog", metaConfig.tags, "/blog"),
     ],
-    creator: metaData.author.twitterAddress,
+    creator: metaConfig.author.twitterAddress,
   },
 };
 
 const BlogPage = async () => {
-  const page = allPages.find((page) => page.slugAsParams === "blog");
-
-  if (!page) {
-    return null;
-  }
-  const posts = allPosts
-    .filter((post) => post.published)
-    .sort((a, b) => {
-      return compareDesc(new Date(a.date), new Date(b.date));
-    });
   return (
     <>
       <div className="mx-auto max-w-5xl">
-        <div className="relative mx-auto max-w-4xl border-b border-dashed border-slate-500/50 px-6 py-4 md:border-y">
-          <div className="absolute -top-1.5 left-0 h-2 w-full bg-gradient-to-r from-white from-20% via-white/5 to-white to-80% dark:from-slate-800 dark:from-20% dark:via-slate-800/5 dark:to-slate-800 dark:to-80%"></div>
-          <div className="absolute -bottom-1.5 left-0 h-2 w-full bg-gradient-to-r from-white from-10% via-white/5 to-white to-90% dark:from-slate-800 dark:from-10% dark:via-slate-800/5 dark:to-slate-800 dark:to-90%"></div>
-
-          <h1 className="mx-auto text-center font-calsans text-3xl tracking-tight text-slate-900 dark:text-slate-100">
-            <Balancer>{page.title}</Balancer>
-          </h1>
-        </div>
-        <div className="relative mx-auto max-w-4xl px-6 py-4">
-          <span className="mb-4 block text-center text-lg leading-8 text-slate-600 dark:text-slate-500">
-            <Balancer>{page.description}</Balancer>
-          </span>
-          <div className="lg:mt-15 mt-10 space-y-5 lg:space-y-5">
+        <div className="relative mx-auto max-w-4xl px-6">
+          <span className="mb-4 block text-balance text-center text-lg leading-8 text-slate-600 dark:text-slate-500"></span>
+          <div className="">
             {posts.map((post) => (
               <div
                 key={v4()}
@@ -88,13 +65,13 @@ const BlogPage = async () => {
                 <div className="relative max-w-full rounded-[0.62rem] bg-white shadow-sm  shadow-black/5 ring-[0.8px] ring-black/5 hover:bg-gray-50 dark:bg-slate-800 dark:shadow-white/5 dark:ring-white/10 dark:hover:bg-slate-900/50">
                   <div className="group mx-auto p-5">
                     <Link
-                      href={`blog/${post.slugAsParams}`}
+                      href={`blog/${post.slug}`}
                       className="relative isolate flex flex-col gap-8 lg:flex-row"
                     >
                       <div className="lg:aspect-square relative aspect-[16/9] sm:aspect-[2/1] lg:w-64 lg:shrink-0">
                         <Image
-                          src={post.image}
-                          alt={post.title}
+                          src={post.imageUrl}
+                          alt={post.imageDescription}
                           fill={true}
                           priority={true}
                           placeholder="blur"
@@ -124,7 +101,7 @@ const BlogPage = async () => {
                           <div className="ml-1.5 flex items-center text-sm leading-6 text-slate-500">
                             <TimeIcon className="h-5 w-5 text-slate-500" />
                             <span className="ml-1.5">
-                              {post.readingTime.text}
+                              {post.readingTime} min read
                             </span>
                           </div>
                         </div>

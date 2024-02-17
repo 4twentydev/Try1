@@ -1,14 +1,14 @@
 import { Disclosure, Transition } from "@headlessui/react";
 import { useRouter } from "next/navigation";
 import { ExoticComponent, FC, ReactNode } from "react";
-import { Menu } from "types";
+import { MenuType } from "types";
 import { v4 } from "uuid";
 
 interface MobileNavProps {
   fragment: ExoticComponent<{
     children?: ReactNode | undefined;
   }>;
-  menus: Menu[];
+  menus: MenuType[];
 }
 
 const MobileNav: FC<MobileNavProps> = ({ fragment, menus }) => {
